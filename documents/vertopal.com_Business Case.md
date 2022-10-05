@@ -3,7 +3,7 @@
 |**Proposed Project**|At this point, the project is not yet approved, so it may not have its final name or the name may change. The current name or identifier should be included here.|
  |------------|------------|
 |**Date Produced**| The date the Business Case is produced.|
-|------------|------------|  
+| | | 
 |**Background**| This section should include information that will help the reader understand the context and background history regarding the potential project. This section should not be written assuming that the background is common knowledge, but instead should be specific in order to create a common understanding of the context.|
  |------------|------------|
 |**Business Need / Opportunity**| This section should demonstrate the business need or opportunity that the proposed project will address.|
