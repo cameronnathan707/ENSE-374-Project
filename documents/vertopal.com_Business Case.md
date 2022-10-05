@@ -9,7 +9,7 @@
 **Background**
   - This section should include information that will help the reader understand the context and background history regarding the potential project. This section should not be written assuming that the background is common knowledge, but instead should be specific in order to create a common understanding of the context.
   
-**Business Need/ Opportunity**
+**Business Need / Opportunity**
   - This section should demonstrate the business need or opportunity that the proposed project will address.
   
 **Options**
