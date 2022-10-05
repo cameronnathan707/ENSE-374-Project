@@ -1,7 +1,7 @@
 # Members
 - Nathan Cameron
 - Shahzil Siddiqui
-- Vida
+- Vida Pathan
 
 # Project Idea
 Create a coding language ranking system where users will rank different coding languages and submit that to a community ranking where you can see the average ranking of languages, and some basic info on the language and its popularity on a time line   
