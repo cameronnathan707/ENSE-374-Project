@@ -3,7 +3,7 @@
 **Proposed Project**  
   - At this point, the project is not yet approved, so it may not have its final name or the name may change. The current name or identifier should be included here.
  
-*Date Produced**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+**Date Produced**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
  - The date the Business Case is produced.
   
 **Background**
