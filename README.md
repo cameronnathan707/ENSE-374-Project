@@ -14,3 +14,5 @@ The Rankings would allow programmers to rank and view the average rankings of po
 [Vlog #1](https://youtu.be/3q4TJZr3Mqs)
 
 [Vlog #2](https://www.youtube.com/watch?v=b9434BoGkNQ&ab_channel=JinketsuVII)
+
+[Vlog #3](https://youtu.be/HFIh-m8q0Ww)
