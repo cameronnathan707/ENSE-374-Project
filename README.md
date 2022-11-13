@@ -16,3 +16,12 @@ The Rankings would allow programmers to rank and view the average rankings of po
 [Vlog #2](https://www.youtube.com/watch?v=h04bmzcUt_A)
 
 [Vlog #3](https://youtu.be/HFIh-m8q0Ww)
+
+#Getting the App Running
+1. Make sure you are in the /app direcorty 
+2. Ensure you have Node.js installed
+3. Run `npm init` and hit enter until you return to command line
+4. Install express with `npm i express`
+5. Install Express Js with `npm i ejs`
+6. Install Mongoose with `npm i mongoose`
+7. Run the app with `node index.js`
