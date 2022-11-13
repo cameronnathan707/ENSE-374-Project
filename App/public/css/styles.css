@@ -1,0 +1,65 @@
+:root {
+    --light-blue:#9FE7F5;
+    --medium-blue:#429EBD;
+    --dark-blue:#053F5C;
+    --tangerine:#F7AD19;
+    --custom-orange:#F27F0C;
+}
+
+header{
+    background-color: var(--medium-blue);
+    color: white;
+    width: 90%;
+    text-align: center;
+    border-radius: 10px;
+    font-size: xx-large;
+    margin: auto;
+}
+
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+h1{
+    color: var(--tangerine);
+    padding: 5px;
+    border-bottom: 2px solid black;
+}
+
+.card-image{
+    width: 50%;
+    margin: auto;
+}
+.rating-card{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 25%;
+    text-align: center;
+    box-shadow: 5px 5px 5px gray;
+    position: relative;
+}
+.card-language{
+    background-color: var(--medium-blue);
+    border-top: 2px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.rate-button{
+    text-decoration: none;
+    background-color: white;
+    color: var(--tangerine);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0 20px;
+}
+
