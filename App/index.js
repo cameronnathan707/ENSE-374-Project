@@ -1,13 +1,11 @@
 const express = require("express");
-const { writeJson, readJson } = require("./public/js/jsonSyncing");
 const mongoose = require("mongoose");
-const { initTasks, initUsers } = require("./public/js/migrate");
 
 // this is a canonical alias to make your life easier, like jQuery to $.
 const app = express();
 
 // connect to mongoose on port 27017
-mongoose.connect( "something", 
+mongoose.connect( "mongodb://localhost:27017/lab8", 
                 { useNewUrlParser: true, 
                   useUnifiedTopology: true});
 
@@ -26,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/home.ejs");
+    res.sendFile(__dirname + "/home.html");
   });
 
 // Simple server operation
