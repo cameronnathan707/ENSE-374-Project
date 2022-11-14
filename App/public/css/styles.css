@@ -29,6 +29,38 @@ h2{
     text-align: center;
 }
 
+.h1Type{
+    color: var(--tangerine);
+    padding: 5px;
+    text-align: center;
+}
+
+/* Detail Page Styling */
+
+
+.gridContainer {
+    display: grid;
+    grid-gap: 5px;
+
+    grid-template-areas: 
+        'header header header' 
+        'main section sidebar' 
+        'footer footer sidebar';
+    grid-template-rows: 32vh 32vh 32vh;
+}
+
+header { grid-area: header; }
+main { grid-area: main; color: white;}
+footer { grid-area: footer; color: white;}
+sidebar { grid-area: sidebar; color: white}
+section { grid-area: section; color: white}
+.box {
+    color: var(--tangerine);
+    background: rgb(233, 233, 233);
+    text-align: center;
+    padding: 2em 1em;
+}
+
 /* Login Stylings */
 .btn{
     background-color: var(--tangerine) !important;

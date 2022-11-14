@@ -31,6 +31,11 @@ app.post("/home",(req,res)=> {
   res.sendFile(__dirname + "/views/home.html")
 });
 
+app.get("/detail.html", (req, res) => {
+  res.sendFile(__dirname + "/views/detail.html");
+});
+
+
 // Simple server operation
 app.listen(port, () => {
   // template literal
