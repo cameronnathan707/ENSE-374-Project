@@ -17,11 +17,12 @@ The Rankings would allow programmers to rank and view the average rankings of po
 
 [Vlog #3](https://youtu.be/HFIh-m8q0Ww)
 
-#Getting the App Running
-1. Make sure you are in the /app direcorty 
-2. Ensure you have Node.js installed
-3. Run `npm init` and hit enter until you return to command line
-4. Install express with `npm i express`
-5. Install Express Js with `npm i ejs`
-6. Install Mongoose with `npm i mongoose`
-7. Run the app with `node index.js`
+# Getting the App Running
+1. Download the Repository
+2. Make sure you are in the /app direcorty 
+3. Ensure you have [Node Js](https://nodejs.org/en/download/) installed
+4. Run `npm init` and hit enter until you return to command line
+5. Install express with `npm i express`
+6. Install Express Js with `npm i ejs`
+7. Install Mongoose with `npm i mongoose`
+8. Run the app with `node index.js`
