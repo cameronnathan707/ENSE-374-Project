@@ -24,8 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/home.html");
+    res.sendFile(__dirname + "/login.html");
   });
+
+app.post("/home",(req,res)=> {
+  res.sendFile(__dirname + "/views/home.html")
+});
 
 // Simple server operation
 app.listen(port, () => {
