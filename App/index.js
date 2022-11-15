@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   });
 
 app.post("/home",(req,res)=> {
-  res.sendFile(__dirname + "/views/home.html")
+  res.render("home")
 });
 
 app.get("/detail.html", (req, res) => {
