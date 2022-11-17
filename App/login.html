@@ -21,14 +21,14 @@
               </button>
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-              <form method="post" action="/home" class="accordion-body" style="width: 100%; background-color: white;">
+              <form method="post" action="/login" class="accordion-body" style="width: 100%; background-color: white;">
                 <h2> Log-In</h2>
-                <label for="email">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-label="username">
+                <label for="email">Email Address</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Email Address" aria-label="username">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-label="password">
-                <label for="email">Authentication</label>
-                <input type="text" name="auth" id="auth" class="form-control" placeholder="Authentication" aria-label="auth">
+                <!-- <label for="email">Authentication</label> -->
+                <!-- <input type="text" name="auth" id="auth" class="form-control" placeholder="Authentication" aria-label="auth"> -->
                 <input type="submit" class="form-control btn btn-primary" value="Login" style="width: 25%;" >
               </form>
             </div>
@@ -41,19 +41,19 @@
               </button>
             </h2>
             <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-              <form method="post" action="/home" class="accordion-body" style="width: 100%; background-color: white;">
+              <form method="post" action="/signup" class="accordion-body" style="width: 100%; background-color: white;">
                 <h2> Sign-Up</h2>
                 <label for="email">Email Address</label>
-                <input type="text" class="form-control" placeholder="Email address" aria-label="Email address">
+                <input type="text" name="username" class="form-control" placeholder="Email address" aria-label="Email address">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password">
                 <label for="cPassword">Confirm Password</label>
-                <input type="cpassword" class="form-control" placeholder="Password" aria-label="Password">
+                <input type="password" name="cPassword" class="form-control" placeholder="Password" aria-label="Password">
                 <br>
                 <label for="affiliation">Affiliation</label>
-                <input type="text" class="form-control" placeholder="Name of organization or bussiness" aria-label="Affiliation">
+                <input type="text" name="affiliation" class="form-control" placeholder="Name of organization or bussiness" aria-label="Affiliation">
                 <label for="auth">Authentication</label>
-                <input type="text" class="form-control" placeholder="Authentication" aria-label="Authentication"> 
+                <input type="text" name="authentication" class="form-control" placeholder="Authentication" aria-label="Authentication"> 
                 <br>
                 <input type="submit" class="form-control btn btn-primary" value="Sign Up" style="width: 25%;" >
               </form> 
