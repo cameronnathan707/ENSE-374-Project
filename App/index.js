@@ -38,15 +38,55 @@ const user2 = new User ({
 //user1.save(); 
 //user2.save(); 
 
+// Ranking Schema 
+const rankSchema = new mongoose.Schema ({
+  language: String, 
+  rankedBy: String, 
+  rank: Number
+});
+
+const Rank = new mongoose.model ("Rank", rankSchema); 
+
+const rank1 = new Rank ({
+  language: "C++", 
+  rankedBy: "shahzil@gmail.com", 
+  rank: 3
+});
+
+const rank2 = new Rank ({
+  language: "C++", 
+  rankedBy: "mark@gmail.com", 
+  rank: 4
+});
+
+// rank1.save(); 
+// rank2.save(); 
+
+
+// Language Schema 
+// const langSchema = new mongoose.Schema ({
+//   language: String, 
+//   avgRank: String, 
+// });
+
+// const Lang = new mongoose.model ("Lang", langSchema); 
+
+// const lang1 = new Lang ({
+//   language: "C++", 
+//   avgRank: 3.5
+// });
+
+// const lang1 = new Lang ({
+//   language: "C++", 
+//   avgRank: 4
+// });
+
+
+
 /*  
 add migration scripts here
 
 */
-
-
-
-
-
 
 
 app.use(express.static("public"));
@@ -106,9 +146,9 @@ app.post("/signup", async(req,res) => {
   {
     res.render ("errors", {error: "Input Fields cannot be empty"});
   }
-  else if (auth == "rank2022") //(auth == process.env.AUTHENTICATION_KEY)
+  else if (auth == "rank2022") //(auth == process.env.AUTHENTICATION_KEY)  <== didnt work
   {
-    const users = await User.find();
+    const users = await User.find(); 
     var newUser = true; 
 
     for (user in users)
@@ -163,29 +203,72 @@ app.post("/home",(req,res)=> {
   res.render("home", {username: username}); 
 });
 
-app.get("/detail.ejs", (req, res) => {
+app.post("/logout",(req,res)=> {  
+  //console.log(username);
+  res.sendFile(__dirname + "/login.html");
+});
+
+app.get("/detail.ejs", async(req, res) => {
+
   res.render("detail", {username: username}); 
 });
 
-// app.get("/home.ejs", (req, res) => {
-  
-//   console.log(req.body); 
-//   if (req.body["username"] == undefined)            // this fixes the disappearence of "logged in as ..." when page reloads > Problem b/c each page render is specific to each user
-//   {
-//     username = req.body["username"];   
-//   }
-//   else
-//   {
-//     username = req.body["username"];
-//   }
-  
-//   res.render("home", {username: username}); 
+app.get("/viewDetail.ejs", async(req, res) => {
+  res.render("viewDetail"); 
+});
 
-//   // res.redirect('back'); 
-// });
 
 app.get("/login.html", (req, res) => {
-  res.sendFile(__dirname + "/login.html");
+  res.sendFile(__dirname + "/login.html"); 
+});
+
+app.post("/rank",async(req,res)=> {  
+  
+  const username = req.body["username"]; 
+  const lang = req.body["language"]; 
+  const rank = req.body["Rating"]; 
+
+  const query = {rankedBy: username, language: lang}; 
+  const options = {};  
+
+  const record = await Rank.findOne(query, options); 
+
+  // restricting user to only one ranking per language, but allowing them to update their ranking
+  if (record != null)
+  {
+    const filter = {rankedBy: username, language: lang};
+    const update = { $set: {rank: rank,},};
+
+    const result = await Rank.updateOne(filter, update);
+    console.log(result);
+    console.log("Updated Existing Rank");   
+  }
+  else if (record == null)
+  {
+    const rank1 = new Rank ({
+      language: lang, 
+      rankedBy: username, 
+      rank: rank
+    });
+  
+    rank1.save(); 
+    console.log("New Rank Submitted"); 
+  }
+  
+  //handle averaging here, helpful site: https://www.mongodb.com/docs/manual/reference/operator/aggregation/avg/
+  // save averaged record into a const variable and send it to render the home route
+  // then in home.ejs, replace all avg with the new averages from passed variable
+
+  res.render("home", {username: username},); 
+});
+
+app.get("/viewHome.ejs",(req,res)=> {   
+//app.post("/viewHome",(req,res)=> {  
+ 
+  // handle avgeraging here again like in the /rank route
+
+
+  res.render("viewHome");
 });
 
 

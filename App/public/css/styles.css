@@ -53,6 +53,14 @@ h2{
     text-align: center;
 }
 
+h3{
+    color: var(--tangerine);
+    padding-top: 10px; 
+    padding-right: 20px; 
+    float: right; 
+    display: inline;
+}
+
 .h1Type{
     color: var(--tangerine);
     padding: 5px;
@@ -125,6 +133,14 @@ section { grid-area: section; color: white}
     background-color: var(--medium-blue);
     border-top: 2px solid black;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-language2{
+    background-color: var(--medium-blue);
+    border-top: 2px solid black;
+    padding: 5px;
     display: flex;
     justify-content: center;
 }

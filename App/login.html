@@ -29,7 +29,9 @@
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-label="password">
                 <!-- <label for="email">Authentication</label> -->
                 <!-- <input type="text" name="auth" id="auth" class="form-control" placeholder="Authentication" aria-label="auth"> -->
-                <input type="submit" class="form-control btn btn-primary" value="Login" style="width: 25%;" >
+                <div style="text-align: center;">
+                  <input type="submit" class="form-control btn btn-primary" value="Login" style="width: 25%;" >
+                </div>
               </form>
             </div>
           </div>
@@ -55,11 +57,20 @@
                 <label for="auth">Authentication</label>
                 <input type="text" name="authentication" class="form-control" placeholder="Authentication" aria-label="Authentication"> 
                 <br>
-                <input type="submit" class="form-control btn btn-primary" value="Sign Up" style="width: 25%;" >
+                <div style="text-align: center;">
+                  <input type="submit" class="form-control btn btn-primary" value="Sign Up" style="width: 25%;" >
+                </div>
               </form> 
             </div>
           </div>
         </div>
+        <form action="/viewHome.ejs" method="get">
+          <br>
+          <div style="text-align: center;">
+            <!-- <input type="hidden" id="username" name="username" value="Welcome Future Developer" > -->
+            <input style="width: 25%;" class="form-control btn btn-primary" type="submit" value="View Rankings">
+          </div>
+        </form>
     </container>
   </body>
 </html>
