@@ -35,8 +35,8 @@ const user2 = new User ({
   affiliation: "Apple"
 });
 
-//user1.save(); 
-//user2.save(); 
+// user1.save(); 
+// user2.save(); 
 
 // Ranking Schema 
 const rankSchema = new mongoose.Schema ({
@@ -48,15 +48,15 @@ const rankSchema = new mongoose.Schema ({
 const Rank = new mongoose.model ("Rank", rankSchema); 
 
 const rank1 = new Rank ({
-  language: "C++", 
+  language: "Java", 
   rankedBy: "shahzil@gmail.com", 
-  rank: 3
+  rank: 5
 });
 
 const rank2 = new Rank ({
-  language: "C++", 
+  language: "Java", 
   rankedBy: "mark@gmail.com", 
-  rank: 4
+  rank: 5
 });
 
 // rank1.save(); 
@@ -107,6 +107,9 @@ app.post("/login", async(req,res) => {
   const query = {username: currUser};
   const options = {};
   const userExists = await User.findOne(query, options); 
+  const averages = await average();
+  console.log(averages)
+
 
   if (userExists == null || userExists === 0)
   {
@@ -118,10 +121,10 @@ app.post("/login", async(req,res) => {
   {   
     if (users[user].username == currUser)
     {
-      console.log("correct userName"); 
+      //console.log("correct userName: " + users[user].username); 
       if (users[user].password == currPass)
       {
-        res.redirect(307, "/home");              
+        res.render("home",{username: users[user].username, averages:averages});              
       }
       else 
       {
@@ -139,6 +142,8 @@ app.post("/signup", async(req,res) => {
   var cPass = req.body["cPassword"];
   var affiliation = req.body["affiliation"];   
   var auth = req.body["authentication"]; 
+  const averages = await average();
+  console.log(averages)
 
   const users = await User.find(); 
 
@@ -173,12 +178,12 @@ app.post("/signup", async(req,res) => {
       }); 
 
       user.save(); 
-      res.redirect(307, "/home");
+      res.render("home",{username: currUser, averages:averages});
     }
     else
     {
       console.log("Email already in use");  
-      res.render ("errors", {error: "Email Alreay in Use"}); 
+      res.render ("errors", {error: "Email Already in Use"}); 
     }
   }
   else
@@ -189,9 +194,10 @@ app.post("/signup", async(req,res) => {
 });
 
 
-app.post("/home",(req,res)=> {  
-  
-  if (req.body["username"] == undefined)            // this fixes the disappearence of "logged in as ..." when page reloads > Problem b/c each page render is specific to each user
+app.post("/home", async(req,res)=> {  
+  const averages = await average();
+  console.log(averages)
+  if (req.body["username"] == undefined)            // this fixes the disappearance of "logged in as ..." when page reloads > Problem b/c each page render is specific to each user
   {
     username = req.body["username"];   
   }
@@ -199,8 +205,8 @@ app.post("/home",(req,res)=> {
   {
     username = req.body["username"];
   }
+  res.render("home", {username: username, averages:averages}); 
   
-  res.render("home", {username: username}); 
 });
 
 app.post("/logout",(req,res)=> {  
@@ -208,9 +214,9 @@ app.post("/logout",(req,res)=> {
   res.sendFile(__dirname + "/login.html");
 });
 
-app.get("/detail.ejs", async(req, res) => {
+app.get("detail.ejs", async(req, res) => {
 
-  res.render("detail", {username: username}); 
+  res.render(`C++`, {username: username}); 
 });
 
 app.get("/viewDetail.ejs", async(req, res) => {
@@ -232,6 +238,7 @@ app.post("/rank",async(req,res)=> {
   const options = {};  
 
   const record = await Rank.findOne(query, options); 
+  const averages = await average();
 
   // restricting user to only one ranking per language, but allowing them to update their ranking
   if (record != null)
@@ -259,13 +266,13 @@ app.post("/rank",async(req,res)=> {
   // save averaged record into a const variable and send it to render the home route
   // then in home.ejs, replace all avg with the new averages from passed variable
 
-  res.render("home", {username: username},); 
+  res.render("home", {username: username, averages:averages}); 
 });
 
 app.get("/viewHome.ejs",(req,res)=> {   
 //app.post("/viewHome",(req,res)=> {  
  
-  // handle avgeraging here again like in the /rank route
+  // handle averaging here again like in the /rank route
 
 
   res.render("viewHome");
@@ -277,3 +284,17 @@ app.listen(port, () => {
   // template literal
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+function average() {
+  return Rank.aggregate(
+    [
+      {
+        $group:
+        {
+          _id: "$language",
+          avgRank:{$avg: "$rank"}
+        }
+      },{$sort:{avgRank:-1}}
+    ]
+  )
+}
