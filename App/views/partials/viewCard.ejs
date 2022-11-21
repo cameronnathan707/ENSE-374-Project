@@ -1,0 +1,25 @@
+<div class="rating-card">
+  <a href="/<%=language%>.ejs" class="h1Type h1" style="text-decoration: none"
+    ><%=language%></a
+  >
+  <h1></h1>
+  <a href="/<%=language%>.ejs"
+    ><div>
+      <img
+        class="card-image"
+        src="/images/<%=language%>.png"
+        alt="Language logo"
+      /></div
+  ></a>
+  <div class="card-language2">
+    <h3>
+      <img
+        src="/images/star.png"
+        style="padding-bottom: 10px"
+        height="40px"
+        width="30px"
+        alt="rate"
+      /><%=rank.toFixed(1)%>
+    </h3>
+  </div>
+</div>

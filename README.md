@@ -25,4 +25,6 @@ The Rankings would allow programmers to rank and view the average rankings of po
 5. Install express with `npm i express`
 6. Install Express Js with `npm i ejs`
 7. Install Mongoose with `npm i mongoose`
+8. Install Passport with `npm i passport passport-local passport-local-mongoose express-session dotenv`
 8. Run the app with `node index.js`
+
