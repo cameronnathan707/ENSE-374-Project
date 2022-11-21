@@ -1,12 +1,57 @@
 <div class="rating-card">
-  <a href="<%=language%>.ejs" class="h1Type h1" style="text-decoration: none;" ><%=language%></a><h3><img src="/images/star.png" style="padding-bottom: 5px;" height="30px" width="30px" alt="rate"> <%=rank%></h3><h1></h1>
-  <a href="<%=language%>.ejs"><div><img  class="card-image" src='/images/<%=language%>.png' alt="Language logo"></div></a>
+  <a href="/<%=language%>.ejs" class="h1Type h1" style="text-decoration: none"
+    ><%=language%></a
+  >
+  <h3>
+    <img
+      src="/images/star.png"
+      style="padding-bottom: 5px"
+      height="30px"
+      width="30px"
+      alt="rate"
+    />
+    <%=rank%>
+  </h3>
+  <h1></h1>
+  <a href="/<%=language%>.ejs"
+    ><div>
+      <img
+        class="card-image"
+        src="/images/<%=language%>.png"
+        alt="Language logo"
+      /></div
+  ></a>
   <div class="card-language">
     <form action="/rank" method="post">
-      <input type="hidden" name="language" id="language" value="<%=language%>">
-      <input type="hidden" name="username" id="username" value="<%=username%>">
-      <input style="height: 47px;" type="number" class="rate-input" name="Rating" id="Rating" min="1" max="5" value="1">
-      <input type="submit" class="rate-button" name="Rate" id="Rate" value="Rate">
+      <input
+        type="hidden"
+        name="language"
+        id="language"
+        value="<%=language%>"
+      />
+      <input
+        type="hidden"
+        name="username"
+        id="username"
+        value="<%=username%>"
+      />
+      <input
+        style="height: 47px"
+        type="number"
+        class="rate-input"
+        name="Rating"
+        id="Rating"
+        min="1"
+        max="5"
+        value="1"
+      />
+      <input
+        type="submit"
+        class="rate-button"
+        name="Rate"
+        id="Rate"
+        value="Rate"
+      />
     </form>
   </div>
 </div>

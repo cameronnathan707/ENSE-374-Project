@@ -210,18 +210,16 @@ app.post("/home", async(req,res)=> {
 });
 
 app.post("/logout",(req,res)=> {  
-  //console.log(username);
   res.sendFile(__dirname + "/login.html");
 });
 
-app.get("detail.ejs", async(req, res) => {
-
-  res.render(`C++`, {username: username}); 
+app.get("/Java.ejs", (req, res) => {
+  res.render("Java"); 
 });
 
-app.get("/viewDetail.ejs", async(req, res) => {
-  res.render("viewDetail"); 
-});
+// app.get("/viewDetail.ejs", async(req, res) => {
+//   res.render("viewDetail"); 
+// });
 
 
 app.get("/login.html", (req, res) => {
@@ -269,13 +267,11 @@ app.post("/rank",async(req,res)=> {
   res.render("home", {username: username, averages:averages}); 
 });
 
-app.get("/viewHome.ejs",(req,res)=> {   
-//app.post("/viewHome",(req,res)=> {  
- 
+app.get("/home.ejs",async(req,res)=> {    
   // handle averaging here again like in the /rank route
+  const averages = await average();
 
-
-  res.render("viewHome");
+  res.render("home",{averages:averages});
 });
 
 

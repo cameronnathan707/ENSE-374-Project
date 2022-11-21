@@ -10,12 +10,29 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <header class="home-header">Software Ranked++ <span><%=username%> | <form action="/logout" method="post" class="inline"><button type="submit" class="link-button">Logout</button></form></span></header>
+    <% if (typeof username == 'undefined') { %>
+      <header class="home-header">Software Ranked++ <span> Welcome Future Developer | <a href="login.html" class="logout">Login</a></span></header>
+    <% } else{ %>
+        <header class="home-header">Software Ranked++ <span><%=username%> | <form action="/logout" method="post" class="inline"><button type="submit" class="link-button">Logout</button></form></span></header>
+    <% } %>
+    
+    
+    
     <br>
     <div class="card-container"> 
-      <% averages.map(function(item){ %>
-        <%- include('partials/card',{username: username, language: item._id, rank: item.avgRank}); %>
-      <% }); %>
+      <% if (typeof username == 'undefined') { %>
+        <% averages.map(function(item){ %>
+          <%- include('partials/viewCard',{language: item._id, rank: item.avgRank}); %>
+        <% }); %>
+      <% } else{ %>
+        <% averages.map(function(item){ %>
+          <%- include('partials/card',{username: username, language: item._id, rank: item.avgRank}); %>
+        <% }); %>
+      <% } %>
+    
+    
+    
+    
     </div>
   </body>
 </html>
