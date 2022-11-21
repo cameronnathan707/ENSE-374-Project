@@ -13,7 +13,7 @@
     <% if (typeof username == 'undefined') { %>
       <header class="home-header">Software Ranked++ <span> Welcome Future Developer | <a href="login.html" class="logout">Login</a></span></header>
     <% } else{ %>
-        <header class="home-header">Software Ranked++ <span><%=username%> | <form action="/logout" method="post" class="inline"><button type="submit" class="link-button">Logout</button></form></span></header>
+        <header class="home-header">Software Ranked++ <span><%=username%> | <form action="/logout" method="get" class="inline"><button type="submit" class="link-button">Logout</button></form></span></header>
     <% } %>
     
     
