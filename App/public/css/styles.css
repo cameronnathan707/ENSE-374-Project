@@ -90,10 +90,9 @@ main {
   color: white;
   border: 2px solid black;
   border-radius: 10px;
-  
 }
 footer {
-  grid-area: footer;
+  grid-area: 3/1 / span 1 / span 3;
   color: white;
   border: 2px solid black;
   border-radius: 10px;
@@ -122,15 +121,15 @@ section {
   text-align: left;
 }
 pre code {
-    color: black;
-    background-color: #eee;
-    border: 1px solid #999;
-    display: block;
-    padding: 20px;
-    text-align: left;
-  }
-code{
-    color: black;
+  color: black;
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+  text-align: left;
+}
+code {
+  color: black;
 }
 /* Login Stylings */
 .btn {
@@ -151,7 +150,9 @@ code{
 }
 
 .card-image {
-  width: 50%;
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
   margin: auto;
   padding: 20px;
 }

@@ -20,6 +20,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set("view engine", "ejs");
+
 // connect to mongoose on port 27017
 mongoose.connect("mongodb://localhost:27017/softRanked",
   {
@@ -67,45 +68,40 @@ const rankSchema = new mongoose.Schema({
 const Rank = new mongoose.model("Rank", rankSchema);
 
 const rank1 = new Rank({
-  language: "Java",
+  language: "Swift",
   rankedBy: "shahzil@gmail.com",
-  rank: 5
+  rank: 3
 });
 
 const rank2 = new Rank({
+  language: "Ruby",
+  rankedBy: "mark@gmail.com",
+  rank: 5
+});
+const rank3 = new Rank({
+  language: "C",
+  rankedBy: "mark@gmail.com",
+  rank: 1
+});
+const rank4 = new Rank({
   language: "Java",
+  rankedBy: "mark@gmail.com",
+  rank: 2
+});
+const rank5 = new Rank({
+  language: "Python",
   rankedBy: "mark@gmail.com",
   rank: 5
 });
 
-// rank1.save(); 
+//rank1.save(); 
 // rank2.save(); 
-
-
-// Language Schema 
-// const langSchema = new mongoose.Schema ({
-//   language: String, 
-//   avgRank: String, 
-// });
-
-// const Lang = new mongoose.model ("Lang", langSchema); 
-
-// const lang1 = new Lang ({
-//   language: "C++", 
-//   avgRank: 3.5
-// });
-
-// const lang1 = new Lang ({
-//   language: "C++", 
-//   avgRank: 4
-// });
+// rank3.save(); 
+// rank4.save(); 
+// rank5.save(); 
 
 
 
-/*  
-add migration scripts here
-
-*/
 
 
 app.use(express.static("public"));
@@ -164,8 +160,7 @@ app.post("/signup", async (req, res) => {
 app.post("/home", async (req, res) => {
   const averages = await average();
   console.log(averages)
-  if (req.isAuthenticated())            // this fixes the disappearance of "logged in as ..." when page reloads > Problem b/c each page render is specific to each user
-  {
+  if (req.isAuthenticated())              {
     username = req.user.username;
     res.render("home", { username: username, averages: averages });
   }
@@ -185,9 +180,17 @@ app.get("/logout", (req, res) => {
   });
 });
 
+app.get("/C.ejs", (req, res) => {
+  if (req.isAuthenticated())             {
+    username = req.user.username;
+    res.render("C", { username: username});
+  }
+  else {
+    res.render("C");
+  }
+});
 app.get("/Java.ejs", (req, res) => {
-  if (req.isAuthenticated())            // this fixes the disappearance of "logged in as ..." when page reloads > Problem b/c each page render is specific to each user
-  {
+  if (req.isAuthenticated())            {
     username = req.user.username;
     res.render("Java", { username: username});
   }
@@ -196,9 +199,43 @@ app.get("/Java.ejs", (req, res) => {
   }
 });
 
-// app.get("/viewDetail.ejs", async(req, res) => {
-//   res.render("viewDetail"); 
-// });
+app.get("/JavaScript.ejs", (req, res) => {
+  if (req.isAuthenticated())             {
+    username = req.user.username;
+    res.render("JavaScript", { username: username});
+  }
+  else {
+    res.render("JavaScript");
+  }
+});
+app.get("/Python.ejs", (req, res) => {
+  if (req.isAuthenticated())              {
+    username = req.user.username;
+    res.render("Python", { username: username});
+  }
+  else {
+    res.render("Python");
+  }
+});
+app.get("/Ruby.ejs", (req, res) => {
+  if (req.isAuthenticated())             {
+    username = req.user.username;
+    res.render("Ruby", { username: username});
+  }
+  else {
+    res.render("Ruby");
+  }
+});
+app.get("/Swift.ejs", (req, res) => {
+  if (req.isAuthenticated())
+  {
+    username = req.user.username;
+    res.render("Swift", { username: username});
+  }
+  else {
+    res.render("Swift");
+  }
+});
 
 
 app.post("/rank", async (req, res) => {
@@ -233,15 +270,10 @@ app.post("/rank", async (req, res) => {
     console.log("New Rank Submitted");
   }
 
-  //handle averaging here, helpful site: https://www.mongodb.com/docs/manual/reference/operator/aggregation/avg/
-  // save averaged record into a const variable and send it to render the home route
-  // then in home.ejs, replace all avg with the new averages from passed variable
-
   res.render("home", { username: username, averages: averages });
 });
 
 app.get("/home.ejs", async (req, res) => {
-  // handle averaging here again like in the /rank route
   const averages = await average();
 
   res.render("home", { averages: averages });

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <% if (typeof username == 'undefined') { %>
+    <header class="home-header">
+      Software Ranked++
+      <span>
+        Welcome Future Developer |
+        <form action="/home" method="post" class="inline">
+          <button type="submit" class="link-button">Home</button>
+        </form>
+        | <a href="login.html" class="logout">Login</a></span
+      >
+    </header>
+    <% } else{ %>
+    <header class="home-header">
+      Software Ranked++
+      <span
+        ><%=username%> |
+        <form action="/home" method="post" class="inline">
+          <input
+            type="hidden"
+            name="username"
+            id="username"
+            value="<%= username%>"
+          />
+          <button type="submit" class="link-button">Home</button>
+        </form>
+        |
+        <form action="/logout" method="get" class="inline">
+          <button type="submit" class="link-button">Logout</button>
+        </form></span
+      >
+    </header>
+    <% } %>
+
+    <br />
+
+    <div class="gridContainer">
+      <header class="box">
+        <h1>C</h1>
+        General Info
+        <p class="content">
+          C is a general-purpose computer programming language. It was created
+          in the 1970s by Dennis Ritchie, and remains very widely used and
+          influential. By design, C's features cleanly reflect the capabilities
+          of the targeted CPUs.
+        </p>
+      </header>
+      <main class="box">
+        <h2>Pros</h2>
+        <ul class="content">
+          <li>
+            Simple to comprehend One of the primary reasons that people prefer C
+            over other programming languages is the simplicity of the language.
+            C is a highly portable programming language, which means that
+            programs written in it are significantly faster and more efficient.
+            As a result, learning C is less difficult than learning any other
+            programming language. As a result of the limited number of keywords
+            and symbols used in C, we can quickly grasp the fundamental
+            concepts.
+          </li>
+          <li>
+            Building block for many other programming languages The C
+            programming language serves as a foundation for many other languages
+            that are currently in use. This language supports a wide range of
+            data types and has a powerful set of operators. As a result,
+            programs written in the C programming language are efficient, fast,
+            and simple to understand.
+          </li>
+          <li>
+            Powerful and efficient Language C is a robust programming language
+            because it contains a large number of data types and operators,
+            allowing us to perform a wide range of operations on a single
+            platform. Assemblers like this one are referred to as "portable
+            assemblers," and they are used for low-level programming that can be
+            compiled with a variety of different compilers.
+          </li>
+          <li>
+            Rich in library functions The C programming language includes a
+            large number of built-in functions, which are divided into two
+            categories: system-generated functions and user-defined functions.
+            In C Compiler, many general functions can be used to develop a
+            program, and the programmer can also create a function that meets
+            their specific needs, which is referred to as a
+            user-generated/defined function. C comes with a large number of
+            built-in functions that make it easier for programmers to write
+            programs in general. scanf() and printf() are examples of functions
+            that can be called without the need to declare them first because
+            they are automatically linked in by the compiler. There are a
+            variety of libraries available that provide an even greater
+            selection of these types of function calls, allowing us to
+            concentrate on developing our functions.
+          </li>
+        </ul>
+      </main>
+      <section class="box">
+        <h2>Cons</h2>
+        <ul class="content">
+          <li>
+            Concept of OOPs C is a powerful programming language, but it does
+            not support the concepts of OOPs (Inheritance, Polymorphism,
+            Encapsulation, Abstraction, and Data Hiding), which are commonly
+            used in other programming languages. C simply adheres to the
+            procedural programming approach to programming.
+          </li>
+          <li>
+            Run-time checking The errors or bugs in the C programming language
+            are not detected after each line of code, as is the case with other
+            programming languages. Instead, after the program has been written,
+            the compiler displays all of the errors. When dealing with large
+            programs, it makes code checking extremely difficult.
+          </li>
+          <li>
+            No strict type checking There is no strict type of checking in this
+            program. We can, for example, pass an integer value as input.
+          </li>
+          <li>
+            Concept of namespace Namespaces are not supported by the C
+            programming language. Because names can be used in multiple
+            contexts, a namespace is structured as a series of commands that can
+            be executed in succession. We will be unable to declare two
+            variables with the same name if we do not use namespaces. However, C
+            programming does not have this feature, and as a result, we are
+            unable to define a variable with the same name in C.
+          </li>
+        </ul>
+      </section>
+      <content class="box">
+        <h2>Code Syntax</h2>
+        <!-- allows the white spaces to stay so it needs to be formatted this way -->
+        <pre>
+            <code>
+#include stdio.h
+  int main() {
+      // printf() displays the string inside quotation
+      printf("Hello, World!");
+      return 0;
+  }
+
+            </code>
+          </pre>
+      </content>
+      <footer class="box">
+        <h2>Popularity</h2>
+        <div>
+          <img src="/images/cTrend.png" alt="Language Popularity Graph" />
+        </div>
+      </footer>
+      <br />
+    </div>
+  </body>
+</html>

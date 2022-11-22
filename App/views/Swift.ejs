@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <% if (typeof username == 'undefined') { %>
+    <header class="home-header">
+      Software Ranked++
+      <span>
+        Welcome Future Developer |
+        <form action="/home" method="post" class="inline">
+          <button type="submit" class="link-button">Home</button>
+        </form>
+        | <a href="login.html" class="logout">Login</a></span
+      >
+    </header>
+    <% } else{ %>
+    <header class="home-header">
+      Software Ranked++
+      <span
+        ><%=username%> |
+        <form action="/home" method="post" class="inline">
+          <input
+            type="hidden"
+            name="username"
+            id="username"
+            value="<%= username%>"
+          />
+          <button type="submit" class="link-button">Home</button>
+        </form>
+        |
+        <form action="/logout" method="get" class="inline">
+          <button type="submit" class="link-button">Logout</button>
+        </form></span
+      >
+    </header>
+    <% } %>
+
+    <br />
+
+    <div class="gridContainer">
+      <header class="box">
+        <h1>Swift</h1>
+        General Info
+        <p class="content">
+          Swift is a general-purpose, multi-paradigm, compiled programming
+          language developed by Apple Inc. and the open-source community.
+        </p>
+      </header>
+      <main class="box">
+        <h2>Pros</h2>
+        <ul class="content">
+          <li>
+            Rapid development process A clean and expressive language with a
+            simplified syntax and grammar, Swift is easier to read and write. It
+            is very concise, which means less code is required to perform the
+            same task, as compared to Objective-C. Automatic Reference Counting
+            (ARC) does all the work tracking and managing the app’s memory
+            usage, so developers don’t need to spend time and effort doing that
+            manually. Accordingly, it usually takes less time to build iOS apps
+            with Swift.
+          </li>
+          <li>
+            Easier to scale the product and the team In addition to faster
+            development time, you get a product that is future-proof and can be
+            extended with new features as needed. Thus, Swift projects are
+            typically easier to scale. The fact that Apple is more likely to
+            support Swift than Objective-C should also get serious consideration
+            for long-term investment.
+          </li>
+          <li>
+            Decreased memory footprint When you build an app, you use a lot of
+            third-party code – reusable and often open source frameworks or
+            libraries compiled into your app’s code. These libraries can be
+            static and dynamic (or shared). You can probably guess that static
+            libraries are locked into code at the time you compiled them, become
+            the part of your executable file, thus increasing its size and load
+            time. They also can’t be automatically updated since they’re stuck
+            in the version you compiled at.
+          </li>
+          <li>
+            Interoperability with Objective-C As Jordan Morgan, iOS developer at
+            Buffer, wrote in his Medium post, “[…] swift is the new toy and
+            marked as the future. Objective-C is showing its age and will,
+            eventually, be much less prevalent. But in the here and the now, the
+            two must learn to coexist peacefully.” Accordingly, there are two
+            possible scenarios for using both in the same project: You either
+            add new features in Swift to the existing Objective-C codebase, or
+            use Objective-C elements in your new Swift project.
+          </li>
+          <li>
+            Vibrant open source community and learnability As Apple’s Senior VP
+            of Software Engineering, Craig Federighi, mentioned “We saw open
+            sourcing as a critical element to make Swift reach its potential to
+            be the language, the major language for the next 20 years of
+            programming in our industry.”
+          </li>
+        </ul>
+      </main>
+      <section class="box">
+        <h2>Cons</h2>
+        <ul class="content">
+          <li>
+            The language is still quite young Swift was introduced to the world
+            in 2014, which seems to be long ago, but the language itself is
+            really only 7 years old, compared to Objective C live since the
+            1980s. The recent update brought ABI stability across Apple’s
+            platforms, backward compatibility of Swift versions, and renewed
+            documentation. Those are huge steps toward making Swift a more
+            mature language.
+          </li>
+          <li>
+            Poor interoperability with third-party tools and IDEs Largely due to
+            frequent updates, as mentioned above, it is often hard to find the
+            right tools to help with certain tasks. Moreover, the official Apple
+            IDE, XCode, lags in terms of tooling and support for Swift.
+            Developers often report issues with syntax highlighting,
+            autocomplete, refactoring tools, and compilers.
+          </li>
+          <li>
+            Incomplete cross-platform support As we mentioned earlier, Swift
+            supports all Apple platforms, as well as Linux and Windows. However,
+            it was originally created and still works best for native iOS
+            development, leaving the cross-platform market to React Native,
+            Xamarin, and Flutter.
+          </li>
+          <li>
+            Lack of support for earlier iOS versions You can only use Swift in
+            the apps that target iOS7 and later. That said, Swift can’t be used
+            for legacy projects running on older versions of the operating
+            system. It’s not that significant since only a tiny percent of Apple
+            devices currently run on iOS6 or earlier versions, but you still
+            have to keep that in mind, you know, just in case.
+          </li>
+        </ul>
+      </section>
+      <content class="box">
+        <h2>Code Syntax</h2>
+        <!-- allows the white spaces to stay so it needs to be formatted this way -->
+        <pre>
+            <code>
+print("Hello, World!") 
+            </code>
+          </pre>
+      </content>
+      <footer class="box">
+        <h2>Popularity</h2>
+        <div>
+          <img src="/images/swiftTrend.png" alt="Language Popularity Graph" />
+        </div>
+      </footer>
+      <br />
+    </div>
+  </body>
+</html>
